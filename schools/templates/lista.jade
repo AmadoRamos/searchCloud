@@ -1,0 +1,66 @@
+!!! 5
+html(lang="es")
+	head
+		title Bienvenido
+	body
+		{% if colegios %}
+		table
+			tr
+				td secretaria
+				td cod_dep
+				td departamento
+				td cod_mun
+				td municipio
+				td codigo
+				td nombre
+				td direccion
+				td telefono
+				td rector
+				td tipo
+				td sector
+				td zona
+				td jornadas
+				td niveles
+				td grados
+				td modelos_educativos
+				td capacidades_excepcionales
+				td discapacidades
+				td idiomas
+				td numero_sedes
+				td estado
+				td calendario
+				td email
+				td calendario
+			{% for colegio in colegios %}
+			tr
+				td {{ colegio.secretaria }}
+				td {{ colegio.cod_dep }}
+				td {{ colegio.departamento }}
+				td {{ colegio.cod_mun }}
+				td {{ colegio.municipio }}
+				td {{ colegio.codigo }}
+				td {{ colegio.nombre }}
+				td {{ colegio.direccion }}
+				td {{ colegio.telefono }}
+				td {{ colegio.rector }}
+				td {{ colegio.tipo }}
+				td {{ colegio.sector }}
+				td {{ colegio.zona }}
+				td {{ colegio.jornadas }}
+				td {{ colegio.niveles }}
+				td {{ colegio.grados }}
+				td {{ colegio.modelos_educativos }}
+				td {{ colegio.capacidades_excepcionales }}
+				td {{ colegio.discapacidades }}
+				td {{ colegio.idiomas }}
+				td {{ colegio.numero_sedes }}
+				td {{ colegio.estado }}
+				td {{ colegio.calendario }}
+				td {{ colegio.email }}
+				td {{ colegio.calendario }}
+			{% endfor %}
+		{% else %}
+		p sin Colegios
+		{% endif %}
+
+		

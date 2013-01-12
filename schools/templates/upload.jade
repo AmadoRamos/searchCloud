@@ -1,0 +1,9 @@
+!!! 5
+html(lang="es")
+	head
+		title Bienvenido
+	body
+		form(id="uploadCSV", method="POST", action="", enctype="multipart/form-data")
+			{% csrf_token %}
+			{{ form }}
+			input(type="submit",value="Enviar") 

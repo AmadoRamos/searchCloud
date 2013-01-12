@@ -1,0 +1,19 @@
+!!! 5
+html(lang="es")
+	head
+		title Bienvenido
+		link(rel="stylesheet", type="text/css", href!="{{ STATIC_URL }}css/style.css")
+	body
+		header
+			figure
+				img(src != "{{ STATIC_URL }}img/logo.png", alt="Logo", width="100%", height="100%" )
+			div 
+				p CloudSearch
+			div.ba
+				a(href="/schools/avanzado", title="Busqueda Avanzada") Busqueda Avanzada
+		section#body
+			figure
+				img(src != "{{ STATIC_URL }}img/logo.png", alt="Logo", width="100%", height="100%" )
+			form(id="buscar", method="GET", action="")
+				input(type="text", placeholder="Buscar...", name="buscar")
+				input(type="submit", value="Buscar")
