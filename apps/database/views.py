@@ -11,7 +11,17 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index_view(request):
-	return render_to_response('index.jade',context_instance=RequestContext(request))		
+	if 'buscar' in request.GET:
+		search = request.GET['buscar']
+		results = colegio.objects.filter(nombre__contains = search.upper())[:10]
+		return render_to_response('search.jade',{ 'results' : results },context_instance=RequestContext(request))		
+	else:
+		if 'id' in request.GET:
+			search = request.GET['id']
+			result = colegio.objects.filter(pk= search)
+			return render_to_response('search_id.jade',{ 'c' : result },context_instance=RequestContext(request))
+		else:
+			return render_to_response('index.jade',context_instance=RequestContext(request))		
 
 @login_required
 def avanzado_view(request):

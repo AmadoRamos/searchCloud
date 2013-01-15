@@ -64,3 +64,43 @@ section#body input[type='submit'] {
 	width: 20%;
 	height: 30px;
 }
+
+section#result {
+	text-align: justify;
+}
+
+section#result input[type='text'] {
+	width: 300px;
+	height: 30px;
+}
+
+section#result input[type='submit'] {
+	width: 20%;
+	height: 30px;
+}
+
+.r {
+	cursor: pointer;
+	min-height: 50px;
+	padding: 5px 5px;
+	margin-top: 2.5px;
+	width: : 100%;
+}
+
+.r a{
+	color: black;
+	text-decoration: none;
+}
+
+.r span {
+	width: 100%;
+}
+
+.r span:nth-child(4n+2), .r span:nth-child(4n+3) {
+	width: 45%;
+}
+
+section#result_id div span {
+	border: 2px solid black;
+	min-height: 20px;
+}

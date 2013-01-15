@@ -1,0 +1,40 @@
+!!! 5
+html(lang="es")
+	head
+		title Resultados
+		meta( name="tipo_contenido",  content="text/html;", http-equiv="content-type", charset="utf-8")
+		link(rel="stylesheet", type="text/css", href!="{{ STATIC_URL }}css/style.css")
+	body
+		header
+			figure
+				img(src != "{{ STATIC_URL }}img/logo.png", alt="Logo", width="100%", height="100%" )
+			div 
+				p CloudSearch
+			div.ba
+				a(href="/schools/avanzado", title="Busqueda Avanzada") Busqueda Avanzada
+		section#result_id
+			div
+				span {{ c.0.secretaria }}
+				span {{ c.0.cod_dep }}
+				span {{ c.0.departamento }}
+				span {{ c.0.cod_mun }}
+				span {{ c.0.municipio }}
+				span {{ c.0.codigo }}
+				span {{ c.0.nombre }}
+				span {{ c.0.direccion }}
+				span {{ c.0.telefono }}
+				span {{ c.0.rector }}
+				span {{ c.0.tipo }}
+				span {{ c.0.sector }}
+				span {{ c.0.zona }}
+				span {{ c.0.jornadas }}
+				span {{ c.0.niveles }}
+				span {{ c.0.grados }}
+				span {{ c.0.modelos_educativos }}
+				span {{ c.0.capacidades_excepcionales }}
+				span {{ c.0.discapacidades }}
+				span {{ c.0.idiomas }}
+				span {{ c.0.numero_sedes }}
+				span {{ c.0.estado }}
+				span {{ c.0.calendario }}
+				span {{ c.0.email }}
