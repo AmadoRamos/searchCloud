@@ -30,3 +30,10 @@ class colegio(models.Model):
 
 	def __unicode__(self):
 		return (self.nombre)
+
+class Departamento(models.Model):
+	nombre				=		models.CharField(max_length=200)
+
+class Municipio(models.Model):
+	nombre				=		models.CharField(max_length=200)
+	departamento_id		=		models.ForeignKey(Departamento)

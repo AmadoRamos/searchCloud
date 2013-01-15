@@ -13,28 +13,32 @@ html(lang="es")
 			div.ba
 				a(href="/schools/avanzado", title="Busqueda Avanzada") Busqueda Avanzada
 		section#result_id
-			div
-				span {{ c.0.secretaria }}
-				span {{ c.0.cod_dep }}
-				span {{ c.0.departamento }}
-				span {{ c.0.cod_mun }}
-				span {{ c.0.municipio }}
-				span {{ c.0.codigo }}
-				span {{ c.0.nombre }}
-				span {{ c.0.direccion }}
-				span {{ c.0.telefono }}
-				span {{ c.0.rector }}
-				span {{ c.0.tipo }}
-				span {{ c.0.sector }}
-				span {{ c.0.zona }}
-				span {{ c.0.jornadas }}
-				span {{ c.0.niveles }}
-				span {{ c.0.grados }}
-				span {{ c.0.modelos_educativos }}
-				span {{ c.0.capacidades_excepcionales }}
-				span {{ c.0.discapacidades }}
-				span {{ c.0.idiomas }}
-				span {{ c.0.numero_sedes }}
-				span {{ c.0.estado }}
-				span {{ c.0.calendario }}
-				span {{ c.0.email }}
+			table
+				tr
+					td Secretaria:  {{ c.0.secretaria }}
+					td(colspan="2") Departamento:  {{ c.0.cod_dep }} - {{ c.0.departamento }}
+					td(colspan="2") Municipio:  {{ c.0.cod_mun }} - {{ c.0.municipio }}
+				tr
+					td Codigo:  {{ c.0.codigo }}
+					td Nombre:  {{ c.0.nombre }}
+					td Direccion:  {{ c.0.direccion }}
+					td Telefono:  {{ c.0.telefono }}
+					td Rector:  {{ c.0.rector }}
+				tr
+					td(colspan="2") Tipo:  {{ c.0.tipo }}
+					td(colspan="2") Sector:  {{ c.0.sector }}
+					td Zona:  {{ c.0.zona }}
+				tr
+					td Jornadas:  {{ c.0.jornadas }}
+					td Niveles:  {{ c.0.niveles }}
+					td Grados:  {{ c.0.grados }}
+					td(colspan="2") Modelos Educativos:  {{ c.0.modelos_educativos }}
+				tr
+					td(colspan="2") Capacidades Excepcionales:  {{ c.0.capacidades_excepcionales }}
+					td(colspan="2") Discapacidades:  {{ c.0.discapacidades }}
+					td Idiomas:  {{ c.0.idiomas }}
+				tr
+					td Numero De Sedes:  {{ c.0.numero_sedes }}
+					td Estado:  {{ c.0.estado }}
+					td Calendario:  {{ c.0.calendario }}
+					td(colspan="2") email:  {{ c.0.email }}

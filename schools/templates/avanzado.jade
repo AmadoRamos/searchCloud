@@ -7,3 +7,80 @@ html(lang="es")
 		header
 			figure
 				img(src != "{{ STATIC_URL }}img/logo.png", alt="Logo", width="100%", height="100%" )
+			div 
+				p CloudSearch
+			div.ba
+				a(href="/schools/", title="Busqueda Basica") Busqueda Basica
+		section#avanzado
+			form( method="POST", action="")
+				{% csrf_token %}
+				select(name="departamento")
+					{% for d in departamentos %}
+					option(value!="{{ d.nombre }}" ) {{ d.nombre }}
+					{% endfor %}
+				select(name="municipio")
+					option(value="") ----------
+					{% for m in municipios %}
+					option(value!="{{ m.nombre }}" ) {{ m.nombre }}
+					{% endfor %}
+				select(name="sector")
+					option(value="") -----------
+					option(value="OFICIAL",) Oficial
+					option(value="NO OFICIAL") No Oficial
+				select(name="zona")
+					option(value="") -----------
+					option(value="RURAL" ) Rural
+					option(value="URBANO" ) Urbano
+				section#departamento
+					label Niveles
+						p Pre-escolar
+							input(type="checkbox", name="niveles",value="PREESCOLAR") 
+						p Basica primaria
+							input(type="checkbox",  name="niveles",value="BASICA PRIMARIA") 
+						p Secundaria
+							input(type="checkbox",  name="niveles",value="SECUNDARIA") 
+						p Media
+							input(type="checkbox",  name="niveles",value="MEDIA") 
+				section
+					label Modelos Educativos
+						p Post primaria
+							input(type="checkbox", name="modelos",value="POST PRIMARIA") 
+						p Programa Para Jóvenes En Extraedad y Adultos
+							input(type="checkbox", name="modelos",value="PROGRAMA PARA JÓVENES EN EXTRAEDAD Y ADULTOS") 
+						p Educación tradicional
+							input(type="checkbox", name="modelos",value="EDUCACIÓN TRADICIONAL") 
+						p Escuela nueva
+							input(type="checkbox", name="modelos",value="ESCUELA NUEVA") 
+						p Etno-Educación
+							input(type="checkbox", name="modelos",value="ETNOEDUCACIÓN")
+						p Aceleración del aprendizaje
+							input(type="checkbox", name="modelos",value="ACELERACIÓN DEL APRENDIZAJE")
+						p Cafam
+							input(type="checkbox", name="modelos",value="CAFAM")
+				section
+					label Selecciona los campos del reporte
+						p Nombre institución
+							input(type="checkbox", name="reporte",value="nombre")
+						p departamento
+							input(type="checkbox", name="reporte",value="departamento")
+						p municipio
+							input(type="checkbox", name="reporte",value="municipio")
+						p dirección
+							input(type="checkbox", name="reporte",value="direccion")
+						p teléfono
+							input(type="checkbox", name="reporte",value="telefono")
+						p E-mail
+							input(type="checkbox", name="reporte",value="email")
+						p tipo de establecimiento
+							input(type="checkbox", name="reporte",value="tipo") 
+						p zona
+							input(type="checkbox", name="reporte",value="zona")
+						p jornadas
+							input(type="checkbox", name="reporte",value="jornadas")
+						p niveles
+							input(type="checkbox", name="reporte",value="niveles")
+						p calendario
+							input(type="checkbox", name="reporte",value="calendario")
+						p rector
+							input(type="checkbox", name="reporte",value="rector")
+				input(type="submit",value="Buscar y Generar",name="Enviar")

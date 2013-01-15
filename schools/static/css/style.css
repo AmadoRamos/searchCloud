@@ -46,6 +46,10 @@ header figure {
 	width: 200px;
 }
 
+section#avazado #departamento{
+	background: green;
+}
+
 section#body {
 	margin: 100px auto;
 	width: 400px;
@@ -100,7 +104,13 @@ section#result input[type='submit'] {
 	width: 45%;
 }
 
-section#result_id div span {
-	border: 2px solid black;
-	min-height: 20px;
+section#result_id table {
+	border-collapse:collapse;
+	width: 100%;
+	text-align: justify;
+}
+section#result_id table,th,tr, td {
+	border: 1px solid black;
+	height: 75px;
+	padding: 5px;
 }
