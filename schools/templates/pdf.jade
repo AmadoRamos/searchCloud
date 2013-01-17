@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="es-ES">
+<head>
+	<meta charset="UTF-8">
+	<title>PDF</title>
+</head>
+<body>
+	<table>
+		{% for c in cols %}
+			<tr>
+				<td> Secretaria:  {{ c.secretaria }}</td>
+				<td colspan="2"> Departamento:  {{ c.cod_dep }} - {{ c.departamento }}</td>
+				<td colspan="2"> Municipio:  {{ c.cod_mun }} - {{ c.municipio }}</td>
+			</tr>
+			<tr>
+				<td> Codigo:  {{ c.codigo }}</td>
+				<td> Nombre:  {{ c.nombre }}</td>
+				<td> Direccion:  {{ c.direccion }}</td>
+				<td> Telefono:  {{ c.telefono }}</td>
+				<td> Rector:  {{ c.rector }}</td>
+			</tr>
+			<tr>
+				<td colspan="2"> Tipo:  {{ c.tipo }}</td>
+				<td colspan="2"> Sector:  {{ c.sector }}</td>
+				<td> Zona:  {{ c.zona }}</td>
+			</tr>
+			<r>
+				<td> Jornadas:  {{ c.jornadas }}</td>
+				<td> Niveles:  {{ c.niveles }}</td>
+				<td> Grados:  {{ c.grados }}</td>
+				<td colspan="2"> Modelos Educativos:  {{ c.modelos_educativos }}</td>
+			</tr>
+			<tr>
+				<td colspan="2"> Capacidades Excepcionales:  {{ c.</td>capacidades_excepcionales }}
+				<td colspan="2"> Discapacidades:  {{ c.discapacidades }}</td>
+				<td> Idiomas:  {{ c.idiomas }}</td>
+			</tr>
+			<tr>
+				<td> Numero De Sedes:  {{ c.numero_sedes }}</td>
+				<td> Estado:  {{ c.estado }}</td>
+				<td> Calendario:  {{ c.calendario }}</td>
+				<td colspan="2"> email:  {{ c.email }}</td>
+			<pdf:nextpage>
+			{% endfor %}
+	</table>
+</body>
+</html>
