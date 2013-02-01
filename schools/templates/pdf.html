@@ -5,44 +5,57 @@
 	<title>PDF</title>
 </head>
 <body>
-	{% for c in cols %}
 	<table>
-			<tr>
-				<td> Secretaria:  {{ c.secretaria }}</td>
-				<td colspan="2"> Departamento:  {{ c.cod_dep }} - {{ c.departamento }}</td>
-				<td colspan="2"> Municipio:  {{ c.cod_mun }} - {{ c.municipio }}</td>
-			</tr>
-			<tr>
-				<td> Codigo:  {{ c.codigo }}</td>
-				<td> Nombre:  {{ c.nombre }}</td>
-				<td> Direccion:  {{ c.direccion }}</td>
-				<td> Telefono:  {{ c.telefono }}</td>
-				<td> Rector:  {{ c.rector }}</td>
-			</tr>
-			<tr>
-				<td colspan="2"> Tipo:  {{ c.tipo }}</td>
-				<td colspan="2"> Sector:  {{ c.sector }}</td>
-				<td> Zona:  {{ c.zona }}</td>
-			</tr>
-			<r>
-				<td> Jornadas:  {{ c.jornadas }}</td>
-				<td> Niveles:  {{ c.niveles }}</td>
-				<td> Grados:  {{ c.grados }}</td>
-				<td colspan="2"> Modelos Educativos:  {{ c.modelos_educativos }}</td>
-			</tr>
-			<tr>
-				<td colspan="2"> Capacidades Excepcionales:  {{ c.capacidades_excepcionales }}</td>
-				<td colspan="2"> Discapacidades:  {{ c.discapacidades }}</td>
-				<td> Idiomas:  {{ c.idiomas }}</td>
-			</tr>
-			<tr>
-				<td> Numero De Sedes:  {{ c.numero_sedes }}</td>
-				<td> Estado:  {{ c.estado }}</td>
-				<td> Calendario:  {{ c.calendario }}</td>
-				<td colspan="2"> email:  {{ c.email }}</td>
-			</tr>
+		<tr>
+			<td>Numero</td>
+			{% for r in reporte %}
+			<td>{{ r.upper }}</td>
+			{% endfor %}
+		</tr>
+		{% for c in cols %}
+		<tr>
+			<td> {{   forloop.counter }}</td>
+				{% for r in reporte %}
+					{% if r == 'nombre' %}
+						<td> {{  c.nombre }}</td>
+					{% endif %}
+					{% if r == 'departamento' %}
+						<td>{{ c.departamento }}</td>
+					{% endif %}
+					{% if r == 'municipio' %}
+						<td>{{ c.municipio }}</td>
+					{% endif %}
+					{% if r == 'direccion' %}
+						<td>{{ c.direccion }}</td>
+					{% endif %}
+					{% if r == 'telefono' %}
+						<td>{{ c.telefono }}</td>
+					{% endif %}
+					{% if r == 'email' %}
+						<td>{{ c.email }}</td>
+					{% endif %}
+					{% if r == 'tipo' %}
+						<td>{{ c.tipo }}</td>
+					{% endif %}
+					{% if r == 'zona' %}
+						<td>{{ c.zona }}</td>
+					{% endif %}
+					{% if r == 'jornadas' %}
+						<td>{{ c.jornadas }}</td>
+					{% endif %}
+					{% if r == 'niveles' %}
+						<td>{{ c.niveles }}</td>
+					{% endif %}
+					{% if r == 'calendario' %}
+						<td>{{ c.calendario }}</td>
+					{% endif %}
+					{% if r == 'rector' %}
+						<td>{{ c.rector }}</td>
+					{% endif %}					
+				{% endfor %}
+		</tr>
+		{% endfor %}
 	</table>
-	<pdf:nextpage>
-	{% endfor %}
+	{# <pdf:nextpage> #}
 </body>
 </html>

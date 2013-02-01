@@ -3,6 +3,9 @@ html(lang="es")
 	head
 		title Busqueda Avanzada
 		link(rel="stylesheet", type="text/css", href!="{{ STATIC_URL }}css/style.css")
+		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Lato")
+		script(type="text/javascript", src!="{{ STATIC_URL }}js/jquery.min.js")
+		script(type="text/javascript", src!="{{ STATIC_URL }}js/script.js")
 	body
 		header
 			figure
@@ -10,77 +13,85 @@ html(lang="es")
 			div 
 				p CloudSearch
 			div.ba
-				a(href="/schools/", title="Busqueda Basica") Busqueda Basica
+				a(href="/", title="Busqueda Basica") Busqueda Basica
 		section#avanzado
 			form( method="POST", action="")
 				{% csrf_token %}
-				select(name="departamento")
-					{% for d in departamentos %}
-					option(value!="{{ d.nombre }}" ) {{ d.nombre }}
-					{% endfor %}
-				select(name="municipio")
-					option(value="") ----------
-					{% for m in municipios %}
-					option(value!="{{ m.nombre }}" ) {{ m.nombre }}
-					{% endfor %}
-				select(name="sector")
-					option(value="") -----------
-					option(value="OFICIAL",) Oficial
-					option(value="NO OFICIAL") No Oficial
-				select(name="zona")
-					option(value="") -----------
-					option(value="RURAL" ) Rural
-					option(value="URBANO" ) Urbano
-				section#departamento
+				p Selecciona tus parametros de busqueda
+				div Departamentos
+					select(name="departamento",id="departamento")
+						{% for d in departamentos %}
+						option(value!="{{ d.nombre }}", data-id!="{{ d.id }}") {{ d.nombre }}
+						{% endfor %}
+				div Municipios
+					select(name="municipio", id='municipio')
+						option(value="") ----------
+						{% for m in municipios %}
+						option(value!="{{ m.nombre }}" ) {{ m.nombre }}
+						{% endfor %}
+				div Sector
+					select(name="sector")
+						option(value="") -----------
+						option(value="OFICIAL",) Oficial
+						option(value="NO OFICIAL") No Oficial
+				div Zona	
+					select(name="zona")
+						option(value="") -----------
+						option(value="RURAL" ) Rural
+						option(value="URBANA" ) Urbana
+				section#niveles
 					label Niveles
-						p Pre-escolar
-							input(type="checkbox", name="niveles",value="PREESCOLAR") 
-						p Basica primaria
-							input(type="checkbox",  name="niveles",value="BASICA PRIMARIA") 
-						p Secundaria
-							input(type="checkbox",  name="niveles",value="SECUNDARIA") 
-						p Media
-							input(type="checkbox",  name="niveles",value="MEDIA") 
-				section
+					div Pre-escolar
+						input(type="checkbox", name="niveles",value="PREESCOLAR") 
+					div Basica primaria
+						input(type="checkbox",  name="niveles",value="PRIMARIA") 
+					div Secundaria
+						input(type="checkbox",  name="niveles",value="SECUNDARIA") 
+					div Media
+						input(type="checkbox",  name="niveles",value="MEDIA") 
+					div Primera infancia
+						input(type="checkbox",  name="niveles",value="INFANCIA") 
+				section#modelos
 					label Modelos Educativos
-						p Post primaria
-							input(type="checkbox", name="modelos",value="POST PRIMARIA") 
-						p Programa Para Jóvenes En Extraedad y Adultos
-							input(type="checkbox", name="modelos",value="PROGRAMA PARA JÓVENES EN EXTRAEDAD Y ADULTOS") 
-						p Educación tradicional
-							input(type="checkbox", name="modelos",value="EDUCACIÓN TRADICIONAL") 
-						p Escuela nueva
-							input(type="checkbox", name="modelos",value="ESCUELA NUEVA") 
-						p Etno-Educación
-							input(type="checkbox", name="modelos",value="ETNOEDUCACIÓN")
-						p Aceleración del aprendizaje
-							input(type="checkbox", name="modelos",value="ACELERACIÓN DEL APRENDIZAJE")
-						p Cafam
-							input(type="checkbox", name="modelos",value="CAFAM")
-				section
+					div Post primaria
+						input(type="checkbox", name="modelos",value="POST PRIMARIA") 
+					div Programa Para Jóvenes En Extraedad y Adultos
+						input(type="checkbox", name="modelos",value="PROGRAMA PARA JÓVENES EN EXTRAEDAD Y ADULTOS") 
+					div Educación tradicional
+						input(type="checkbox", name="modelos",value="EDUCACIÓN TRADICIONAL") 
+					div Escuela nueva
+						input(type="checkbox", name="modelos",value="ESCUELA NUEVA") 
+					div Etno-Educación
+						input(type="checkbox", name="modelos",value="ETNOEDUCACIÓN")
+					div Aceleración del aprendizaje
+						input(type="checkbox", name="modelos",value="ACELERACIÓN DEL APRENDIZAJE")
+					div Cafam
+						input(type="checkbox", name="modelos",value="CAFAM")
+				section#reporte
 					label Selecciona los campos del reporte
-						p Nombre institución
-							input(type="checkbox", name="reporte",value="nombre")
-						p departamento
-							input(type="checkbox", name="reporte",value="departamento")
-						p municipio
-							input(type="checkbox", name="reporte",value="municipio")
-						p dirección
-							input(type="checkbox", name="reporte",value="direccion")
-						p teléfono
-							input(type="checkbox", name="reporte",value="telefono")
-						p E-mail
-							input(type="checkbox", name="reporte",value="email")
-						p tipo de establecimiento
-							input(type="checkbox", name="reporte",value="tipo") 
-						p zona
-							input(type="checkbox", name="reporte",value="zona")
-						p jornadas
-							input(type="checkbox", name="reporte",value="jornadas")
-						p niveles
-							input(type="checkbox", name="reporte",value="niveles")
-						p calendario
-							input(type="checkbox", name="reporte",value="calendario")
-						p rector
-							input(type="checkbox", name="reporte",value="rector")
-				input(type="submit",value="Buscar y Generar",name="Enviar")
+					div Nombre institución
+						input(type="checkbox", name="reporte[]",value="nombre")
+					div departamento
+						input(type="checkbox", name="reporte[]",value="departamento")
+					div municipio
+						input(type="checkbox", name="reporte[]",value="municipio")
+					div dirección
+						input(type="checkbox", name="reporte[]",value="direccion")
+					div teléfono
+						input(type="checkbox", name="reporte[]",value="telefono")
+					div E-mail
+						input(type="checkbox", name="reporte[]",value="email")
+					div tipo de establecimiento
+						input(type="checkbox", name="reporte[]",value="tipo") 
+					div zona
+						input(type="checkbox", name="reporte[]",value="zona")
+					div jornadas
+						input(type="checkbox", name="reporte[]",value="jornadas")
+					div niveles
+						input(type="checkbox", name="reporte[]",value="niveles")
+					div calendario
+						input(type="checkbox", name="reporte[]",value="calendario")
+					div rector
+						input(type="checkbox", name="reporte[]",value="rector")
+					input(type="submit",value="Buscar & Generar",name="Enviar")
+

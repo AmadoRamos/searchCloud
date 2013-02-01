@@ -6,6 +6,7 @@
 body {
 	font-size: 16px;
 	text-align: center;
+	font-family: 'Lato'
 }
 
 header, article, div, span, figure{
@@ -114,3 +115,90 @@ section#result_id table,th,tr, td {
 	height: 75px;
 	padding: 5px;
 }
+
+section#avanzado {
+	background: #ccc;
+	text-align: justify;
+	padding: 1.5%;
+}
+
+section#avanzado div{
+	width: 24.5%;
+	margin-top: 10px;
+}
+
+section#avanzado div select{
+	width: 60%;
+	float: right;
+}
+
+section#avanzado section{
+	display: inline-block;
+	vertical-align: top;
+	border: 1.5px solid white;
+	padding: .5%;
+	margin-top: 15px;
+	min-height: 200px;
+}
+
+section#avanzado section#niveles {
+	width: 30%;
+}
+
+section#avanzado section#modelos {
+	width: 65%;
+}
+
+section#avanzado section#reporte{
+	width: 99%;
+}
+
+section#avanzado section#niveles div,
+section#avanzado section#modelos div,
+section#avanzado section#reporte div {
+	float: left;
+	position: relative;
+	padding: .7%;
+	height: 25px;
+}
+
+section#avanzado section#niveles div input[type='checkbox'],
+section#avanzado section#modelos div input[type='checkbox'],
+section#avanzado section#reporte div input[type='checkbox'] {
+	float: right;
+}
+
+section#avanzado section#niveles div {
+	width: 45%;
+}
+
+section#avanzado section#modelos div {
+	width: 41%;
+	height: 25px;
+}
+
+section#avanzado section#niveles label,
+section#avanzado section#modelos label, 
+section#avanzado section#reporte label{
+	text-align: center;
+	position: relative;
+	background: #ccc;
+	height: 15px;
+	float: left;
+	width: 20%;
+	margin-top: -15px;
+}
+
+section#avanzado section#reporte input[type='submit']{
+	width: 150px;
+	height: 40px;
+	background: none;
+	border: 2px solid white;
+	position: relative;
+	right: -30px;
+	top: 75px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+
